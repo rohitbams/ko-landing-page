@@ -22,6 +22,19 @@ body {
     position: relative;
 }
 
+/* Bottom gradient overlay */
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40vh;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
 /* ===== LOGO CUBE - TOP RIGHT ===== */
 .cube-container {
     position: absolute;
@@ -46,8 +59,8 @@ body {
 }
 
 .cube {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     position: relative;
     transform-style: preserve-3d;
     /* Fast spin cycle animation - 3 seconds total */
@@ -87,8 +100,8 @@ body {
 
 .cube-face {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -96,7 +109,7 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 8px;
+    padding: 4px;
     overflow: hidden;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -122,7 +135,7 @@ body {
 .cube-face span {
     position: relative;
     z-index: 1;
-    font-size: 18px;
+    font-size: 9px;
     background: linear-gradient(to bottom, #848A9D, #8B9AAD);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -135,23 +148,23 @@ body {
     font-stretch: ultra-expanded;
 }
 
-/* Adjust font size based on text length - fit within 80px with 10% padding */
+/* Adjust font size based on text length - fit within 40px with 10% padding */
 .cube-face.front span {
     /* KLASH - 5 letters */
-    font-size: 18px;
+    font-size: 9px;
     transform: scale(2.8, 2.8);
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
 }
 
 .cube-face.right span {
     /* OUT - 3 letters */
-    font-size: 28px;
+    font-size: 14px;
     transform: scale(2.6, 1.8);
     letter-spacing: 0px;
 }
 
 .cube-face.right .tm {
-    font-size: 4px;
+    font-size: 2px;
     transform: scale(1, 0.5);
     vertical-align: super;
     /* margin-left: 1px; */
@@ -159,32 +172,32 @@ body {
 }
 
 .cube-face.front {
-    transform: translateZ(50px);
+    transform: translateZ(25px);
     background: linear-gradient(to bottom, #062842, #0A5F7C);
 }
 
 .cube-face.back {
-    transform: rotateY(180deg) translateZ(50px);
+    transform: rotateY(180deg) translateZ(25px);
     background: linear-gradient(to bottom, #062842, #0A5F7C);
 }
 
 .cube-face.left {
-    transform: rotateY(-90deg) translateZ(50px);
+    transform: rotateY(-90deg) translateZ(25px);
     background: linear-gradient(to bottom, #062842, #0A5F7C);
 }
 
 .cube-face.right {
-    transform: rotateY(90deg) translateZ(50px);
+    transform: rotateY(90deg) translateZ(25px);
     background: linear-gradient(to bottom, #062842, #0A5F7C);
 }
 
 .cube-face.top {
-    transform: rotateX(90deg) translateZ(50px);
+    transform: rotateX(90deg) translateZ(25px);
     background: linear-gradient(to bottom, #062842, #0A5F7C);
 }
 
 .cube-face.bottom {
-    transform: rotateX(-90deg) translateZ(50px);
+    transform: rotateX(-90deg) translateZ(25px);
     background: #0C1522;
 }
 
@@ -200,6 +213,8 @@ body {
     width: 100%;
     flex: 1;
     gap: 40px;
+    position: relative;
+    z-index: 1;
 }
 
 /* ===== COMING SOON BADGE ===== */
@@ -270,7 +285,7 @@ body {
 }
 
 .countdown-value {
-    font-size: 72px;
+    font-size: 50px;
     font-weight: normal;
     font-style: italic;
     font-family: 'DSEG7Classic', monospace;
@@ -297,7 +312,7 @@ body {
 .countdown-label {
     color: rgba(220, 0, 0, 0.7);
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 50px;
+    font-size: 35px;
     font-weight: 400;
     letter-spacing: 2px;
 }
@@ -321,6 +336,47 @@ body {
     max-width: 1000px;
 }
 
+/* ===== ANIMATION OPTIONS ===== */
+.animation-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.options-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #166D90;
+    letter-spacing: 0.5px;
+}
+
+.options-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.option-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FAFAFA;
+    background: rgba(22, 109, 144, 0.2);
+    border: 1px solid rgba(22, 109, 144, 0.4);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.option-link:hover {
+    background: rgba(22, 109, 144, 0.3);
+    border-color: rgba(22, 109, 144, 0.6);
+    color: #FFFFFF;
+}
+
 /* ===== FOOTER ===== */
 .footer {
     font-family: 'Inter', sans-serif;
@@ -329,6 +385,9 @@ body {
     color: #1b1b1b;
     text-align: center;
     line-height: 1.6;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -344,41 +403,41 @@ body {
     }
 
     .cube {
-        width: 80px;
-        height: 80px;
+        width: 40px;
+        height: 40px;
     }
 
     .cube-face {
-        width: 80px;
-        height: 80px;
-        padding: 6px;
+        width: 40px;
+        height: 40px;
+        padding: 3px;
     }
 
     .cube-face span {
-        font-size: 14px;
+        font-size: 7px;
         transform: scale(1.5, 1.8);
     }
 
     .cube-face.front span {
-        font-size: 14px;
+        font-size: 7px;
         transform: scale(2.2, 1.8);
     }
 
     .cube-face.right span {
-        font-size: 22px;
+        font-size: 11px;
         transform: scale(1.8, 1.8);
     }
 
     .cube-face.right .tm {
-        font-size: 6px;
+        font-size: 3px;
     }
 
-    .cube-face.front { transform: translateZ(40px); }
-    .cube-face.back { transform: rotateY(180deg) translateZ(40px); }
-    .cube-face.left { transform: rotateY(-90deg) translateZ(40px); }
-    .cube-face.right { transform: rotateY(90deg) translateZ(40px); }
-    .cube-face.top { transform: rotateX(90deg) translateZ(40px); }
-    .cube-face.bottom { transform: rotateX(-90deg) translateZ(40px); }
+    .cube-face.front { transform: translateZ(20px); }
+    .cube-face.back { transform: rotateY(180deg) translateZ(20px); }
+    .cube-face.left { transform: rotateY(-90deg) translateZ(20px); }
+    .cube-face.right { transform: rotateY(90deg) translateZ(20px); }
+    .cube-face.top { transform: rotateX(90deg) translateZ(20px); }
+    .cube-face.bottom { transform: rotateX(-90deg) translateZ(20px); }
 
     .brand-title {
         font-size: 72px;
@@ -409,41 +468,41 @@ body {
     }
 
     .cube {
-        width: 60px;
-        height: 60px;
+        width: 30px;
+        height: 30px;
     }
 
     .cube-face {
-        width: 60px;
-        height: 60px;
-        padding: 5px;
+        width: 30px;
+        height: 30px;
+        padding: 2.5px;
     }
 
     .cube-face span {
-        font-size: 11px;
+        font-size: 5.5px;
         transform: scale(1.5, 1.8);
     }
 
     .cube-face.front span {
-        font-size: 11px;
+        font-size: 5.5px;
         transform: scale(2.2, 1.8);
     }
 
     .cube-face.right span {
-        font-size: 17px;
+        font-size: 8.5px;
         transform: scale(1.8, 1.8);
     }
 
     .cube-face.right .tm {
-        font-size: 5px;
+        font-size: 2.5px;
     }
 
-    .cube-face.front { transform: translateZ(30px); }
-    .cube-face.back { transform: rotateY(180deg) translateZ(30px); }
-    .cube-face.left { transform: rotateY(-90deg) translateZ(30px); }
-    .cube-face.right { transform: rotateY(90deg) translateZ(30px); }
-    .cube-face.top { transform: rotateX(90deg) translateZ(30px); }
-    .cube-face.bottom { transform: rotateX(-90deg) translateZ(30px); }
+    .cube-face.front { transform: translateZ(15px); }
+    .cube-face.back { transform: rotateY(180deg) translateZ(15px); }
+    .cube-face.left { transform: rotateY(-90deg) translateZ(15px); }
+    .cube-face.right { transform: rotateY(90deg) translateZ(15px); }
+    .cube-face.top { transform: rotateX(90deg) translateZ(15px); }
+    .cube-face.bottom { transform: rotateX(-90deg) translateZ(15px); }
 
     .main-content {
         gap: 30px;
@@ -480,6 +539,15 @@ body {
 
     .description {
         font-size: 16px;
+    }
+
+    .options-label {
+        font-size: 14px;
+    }
+
+    .option-link {
+        font-size: 12px;
+        padding: 8px 16px;
     }
 
     .footer {

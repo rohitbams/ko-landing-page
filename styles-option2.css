@@ -1,0 +1,360 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: 'Inter', sans-serif;
+    background-image: url('./V2_Background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px 20px;
+    position: relative;
+}
+
+/* ===== LOGO CUBE - TOP RIGHT (PNG Sequence Animation) ===== */
+.cube-container {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+}
+
+/* Glow effect wrapper */
+.cube-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(92, 156, 181, 0.6) 0%, rgba(30, 50, 69, 0.4) 40%, transparent 70%);
+    filter: blur(30px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.cube-animated {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    /* border: red solid 1px; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    max-width: 1500px;
+    width: 100%;
+    flex: 1;
+    gap: 40px;
+}
+
+/* ===== COMING SOON BADGE ===== */
+.coming-soon-badge {
+    color: #DC0000;
+    background: rgba(220, 0, 0, 0.2);
+    border: 2px solid rgba(254, 14, 14, 0.4);
+    padding: 12px 40px;
+    border-radius: 50px;
+    /* font-family: 'Bebas Neue', sans-serif; */
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+/* ===== BRAND TITLE ===== */
+.brand-title {
+    color: #FAFAFA;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 96px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    line-height: 1;
+}
+
+/* ===== TAGLINE ===== */
+.tagline {
+    /* border: red solid 1px; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 650px;
+}
+
+.tagline-1 {
+    color: #166D90;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.tagline-2 {
+    color: #FAFAFA;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 96px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown-container {
+    width: 100%;
+}
+
+.countdown {
+    display: flex;
+    gap: 40px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.countdown-value {
+    font-size: 72px;
+    font-weight: normal;
+    font-style: italic;
+    font-family: 'DSEG7Classic', monospace;
+    color: #C40001;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    position: relative;
+    background: rgba(20, 20, 20, 0.3);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-shadow: 0 0 10px rgba(196, 0, 1, 0.5);
+}
+
+/* Ghost segments (non-illuminated segments) */
+.countdown-value::before {
+    content: '88';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: rgba(50, 50, 50, 0.15);
+    z-index: -1;
+}
+
+.countdown-label {
+    color: rgba(220, 0, 0, 0.7);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.launched-message {
+    display: none;
+    font-size: 72px;
+    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #DC0000;
+}
+
+/* ===== DESCRIPTION ===== */
+.description {
+    /* border: red solid 1px; */
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #CBCBCB;
+    line-height: 1.6;
+    max-width: 1000px;
+}
+
+/* ===== ANIMATION OPTIONS ===== */
+.animation-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.options-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #166D90;
+    letter-spacing: 0.5px;
+}
+
+.options-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.option-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FAFAFA;
+    background: rgba(22, 109, 144, 0.2);
+    border: 1px solid rgba(22, 109, 144, 0.4);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.option-link:hover {
+    background: rgba(22, 109, 144, 0.3);
+    border-color: rgba(22, 109, 144, 0.6);
+    color: #FFFFFF;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #1b1b1b;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .cube-container {
+        top: 20px;
+        right: 30px;
+    }
+
+    .cube-container::before {
+        width: 200px;
+        height: 200px;
+    }
+
+    .cube-animated {
+        width: 80px;
+        height: 80px;
+    }
+
+    .brand-title {
+        font-size: 72px;
+    }
+
+    .tagline-1 {
+        font-size: 60px;
+    }
+
+    .tagline-2 {
+        font-size: 72px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    .cube-container {
+        top: 15px;
+        right: 15px;
+    }
+
+    .cube-container::before {
+        width: 150px;
+        height: 150px;
+    }
+
+    .cube-animated {
+        width: 60px;
+        height: 60px;
+    }
+
+    .main-content {
+        gap: 30px;
+    }
+
+    .coming-soon-badge {
+        font-size: 18px;
+        padding: 10px 30px;
+    }
+
+    .brand-title {
+        font-size: 48px;
+    }
+
+    .tagline-1 {
+        font-size: 36px;
+    }
+
+    .tagline-2 {
+        font-size: 48px;
+    }
+
+    .countdown {
+        gap: 20px;
+    }
+
+    .countdown-value {
+        font-size: 48px;
+    }
+
+    .countdown-label {
+        font-size: 32px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .options-label {
+        font-size: 14px;
+    }
+
+    .option-link {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tagline-1 {
+        font-size: 28px;
+    }
+
+    .tagline-2 {
+        font-size: 36px;
+    }
+
+    .countdown-value {
+        font-size: 36px;
+    }
+
+    .countdown-label {
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+}
