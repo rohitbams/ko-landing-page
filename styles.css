@@ -18,7 +18,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 20px 20px;
+    padding: 40px 100px 20px;
     position: relative;
 }
 
@@ -35,12 +35,11 @@ body::after {
     z-index: 0;
 }
 
-/* ===== LOGO CUBE - TOP RIGHT ===== */
+/* ===== LOGO CUBE - TOP RIGHT (PNG Sequence Animation) ===== */
 .cube-container {
     position: absolute;
     top: 40px;
     right: 60px;
-    perspective: 1000px;
 }
 
 /* Glow effect wrapper */
@@ -58,148 +57,27 @@ body::after {
     pointer-events: none;
 }
 
-.cube {
-    width: 50px;
-    height: 50px;
-    position: relative;
-    transform-style: preserve-3d;
-    /* Fast spin cycle animation - 3 seconds total */
-    animation: cubeFastSpin 3s infinite;
+/* GIF cube styling */
+.cube-gif {
+    width: 100px;
+    height: 100px;
+    display: block;
+    /* Fade edges to transparent using mask */
+    mask-image: radial-gradient(circle at center,
+        black 10%,
+        rgba(0, 0, 0, 0.15) 70%,
+        transparent 100%
+    );
 }
 
-@keyframes cubeFastSpin {
-    /* Pause at starting position - 0-33.33% (1s) */
-    0%, 33.33% {
-        transform: rotateX(28deg) rotateY(-45deg);
-        animation-timing-function: ease-in;
-    }
-
-    /* Accelerate - 33.33-37.5% (~0.125s) - slower acceleration, 0.5 rotation */
-    37.5% {
-        transform: rotateX(28deg) rotateY(135deg);
-        animation-timing-function: linear;
-    }
-
-    /* Fast spin - 37.5-91.67% (~1.625s) - 35 full rotations at VERY high speed */
-    91.67% {
-        transform: rotateX(28deg) rotateY(12735deg);
-        animation-timing-function: ease-out;
-    }
-
-    /* Decelerate - 91.67-95.83% (~0.125s) - smooth deceleration, 0.5 rotation */
-    95.83% {
-        transform: rotateX(28deg) rotateY(12915deg);
-        animation-timing-function: linear;
-    }
-
-    /* Pause before loop - 95.83-100% (~0.125s) */
-    100% {
-        transform: rotateX(28deg) rotateY(12915deg);
-    }
+.cube-animated {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.cube-face {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 4px;
-    overflow: hidden;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-}
-
-/* Gradient borders using pseudo-elements */
-.cube-face::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 2px solid transparent;
-    background: linear-gradient(to bottom, #456278, #192333) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
-}
-
-.cube-face span {
-    position: relative;
-    z-index: 1;
-    font-size: 9px;
-    background: linear-gradient(to bottom, #848A9D, #8B9AAD);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    width: 100%;
-    text-align: center;
-    line-height: 1;
-    display: inline-block;
-    transform: scale(1.5, 1.8);
-    font-stretch: ultra-expanded;
-}
-
-/* Adjust font size based on text length - fit within 40px with 10% padding */
-.cube-face.front span {
-    /* KLASH - 5 letters */
-    font-size: 9px;
-    transform: scale(2.8, 2.8);
-    letter-spacing: -0.5px;
-}
-
-.cube-face.right span {
-    /* OUT - 3 letters */
-    font-size: 14px;
-    transform: scale(2.6, 1.8);
-    letter-spacing: 0px;
-}
-
-.cube-face.right .tm {
-    font-size: 2px;
-    transform: scale(1, 0.5);
-    vertical-align: super;
-    /* margin-left: 1px; */
-    font-weight: 400;
-}
-
-.cube-face.front {
-    transform: translateZ(25px);
-    background: linear-gradient(to bottom, #062842, #0A5F7C);
-}
-
-.cube-face.back {
-    transform: rotateY(180deg) translateZ(25px);
-    background: linear-gradient(to bottom, #062842, #0A5F7C);
-}
-
-.cube-face.left {
-    transform: rotateY(-90deg) translateZ(25px);
-    background: linear-gradient(to bottom, #062842, #0A5F7C);
-}
-
-.cube-face.right {
-    transform: rotateY(90deg) translateZ(25px);
-    background: linear-gradient(to bottom, #062842, #0A5F7C);
-}
-
-.cube-face.top {
-    transform: rotateX(90deg) translateZ(25px);
-    background: linear-gradient(to bottom, #062842, #0A5F7C);
-}
-
-.cube-face.bottom {
-    transform: rotateX(-90deg) translateZ(25px);
-    background: #0C1522;
-}
 
 /* ===== MAIN CONTENT ===== */
 .main-content {
@@ -246,7 +124,7 @@ body::after {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-right: 650px;
+    padding-right: 550px;
 }
 
 .tagline-1 {
@@ -272,26 +150,48 @@ body::after {
 
 .countdown {
     display: flex;
-    gap: 40px;
     justify-content: flex-start;
     flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0;
 }
 
 .countdown-unit {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
 }
 
-.countdown-value {
-    font-size: 50px;
+/* Add colon after countdown value except for the last unit */
+.countdown-unit:not(:last-child) .countdown-value::after {
+    content: ':';
+    position: absolute;
+    right: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 70px;
     font-weight: normal;
-    font-style: italic;
+    font-style: normal;
     font-family: 'DSEG7Classic', monospace;
     color: #C40001;
     line-height: 1.2;
     letter-spacing: 0.05em;
+    background: rgba(20, 20, 20, 0.3);
+    padding: 10px 8px;
+    border-radius: 5px;
+    text-shadow: 0 0 10px rgba(196, 0, 1, 0.5),
+                 0 0 20px rgba(196, 0, 1, 0.3),
+                 0 0 5px rgba(196, 0, 1, 0.6);
+    filter: drop-shadow(0 0 3px rgba(196, 0, 1, 0.4));
+}
+
+.countdown-value {
+    font-size: 70px;
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'DSEG7Classic', monospace;
+    color: #C40001;
+    line-height: 1.2;
     position: relative;
     background: rgba(20, 20, 20, 0.3);
     padding: 10px 20px;
@@ -331,9 +231,12 @@ body::after {
     font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
-    color: #CBCBCB;
     line-height: 1.6;
     max-width: 1000px;
+    background: linear-gradient(to bottom, #cbcbcb86 0%, #5757577b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* ===== ANIMATION OPTIONS ===== */
@@ -382,12 +285,18 @@ body::after {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 400;
-    color: #1b1b1b;
     text-align: center;
     line-height: 1.6;
     padding: 40px 20px;
     position: relative;
     z-index: 1;
+}
+
+.footer p {
+    background: linear-gradient(to bottom, #1b1b1b 0%, #000000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -400,6 +309,11 @@ body::after {
     .cube-container::before {
         width: 200px;
         height: 200px;
+    }
+
+    .cube-gif {
+        width: 80px;
+        height: 80px;
     }
 
     .cube {
@@ -467,6 +381,11 @@ body::after {
         height: 150px;
     }
 
+    .cube-gif {
+        width: 60px;
+        height: 60px;
+    }
+
     .cube {
         width: 30px;
         height: 30px;
@@ -526,7 +445,13 @@ body::after {
     }
 
     .countdown {
-        gap: 20px;
+        gap: 0;
+    }
+
+    .countdown-unit:not(:last-child) .countdown-value::after {
+        right: -20px;
+        font-size: 48px;
+        padding: 8px 6px;
     }
 
     .countdown-value {
