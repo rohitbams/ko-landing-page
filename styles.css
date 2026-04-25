@@ -239,49 +239,11 @@ body::after {
     background-clip: text;
 }
 
-/* ===== ANIMATION OPTIONS ===== */
-.animation-options {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.options-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: #166D90;
-    letter-spacing: 0.5px;
-}
-
-.options-links {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.option-link {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: #FAFAFA;
-    background: rgba(22, 109, 144, 0.2);
-    border: 1px solid rgba(22, 109, 144, 0.4);
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.option-link:hover {
-    background: rgba(22, 109, 144, 0.3);
-    border-color: rgba(22, 109, 144, 0.6);
-    color: #FFFFFF;
-}
 
 /* ===== FOOTER ===== */
 .footer {
+    /* border: 1px red solid; */
+    color: rgba(83, 82, 82, 0.694);
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -293,10 +255,10 @@ body::after {
 }
 
 .footer p {
-    background: linear-gradient(to bottom, #1b1b1b 0%, #000000 100%);
+    /* background: linear-gradient(to bottom, #1b1b1b 0%, #000000 100%); */
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    /* -webkit-text-fill-color: transparent; */
+    /* background-clip: text; */
 }
 
 /* ===== RESPONSIVE ===== */
@@ -499,5 +461,82 @@ body::after {
 
     .description {
         font-size: 14px;
+    }
+}
+
+/* ===== LANDSCAPE ORIENTATION ON MOBILE ===== */
+@media (max-width: 926px) and (orientation: landscape) {
+    body {
+        padding: 20px 40px 10px;
+    }
+
+    .cube-container {
+        top: 15px;
+        right: 20px;
+    }
+
+    .cube-container::before {
+        width: 120px;
+        height: 120px;
+    }
+
+    .cube-gif {
+        width: 50px;
+        height: 50px;
+    }
+
+    .main-content {
+        gap: 20px;
+    }
+
+    .coming-soon-badge {
+        font-size: 16px;
+        padding: 8px 24px;
+    }
+
+    .brand-title {
+        font-size: 48px;
+    }
+
+    .tagline {
+        padding-right: 100px;
+    }
+
+    .tagline-1 {
+        font-size: 36px;
+    }
+
+    .tagline-2 {
+        font-size: 44px;
+    }
+
+    .countdown-unit:not(:last-child) .countdown-value::after {
+        right: -18px;
+        font-size: 40px;
+        padding: 6px 5px;
+    }
+
+    .countdown-value {
+        font-size: 40px;
+        padding: 6px 12px;
+    }
+
+    .countdown-value::before {
+        top: 6px;
+        left: 12px;
+    }
+
+    .countdown-label {
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 14px;
+        max-width: 700px;
+    }
+
+    .footer {
+        font-size: 11px;
+        padding: 20px 10px;
     }
 }
