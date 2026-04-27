@@ -1,4 +1,12 @@
 /* ===== RESET ===== */
+
+@font-face {
+    font-family: 'DSEG7Classic';
+    src: url('fonts/DSEG7-Classic/DSEG7Classic-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -243,7 +251,7 @@ body::after {
 /* ===== FOOTER ===== */
 .footer {
     /* border: 1px red solid; */
-    color: rgba(83, 82, 82, 0.694);
+    color: rgba(66, 66, 66, 0.679);
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 400;
